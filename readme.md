@@ -4,7 +4,7 @@ I wrote this library to help in testing my operating system class (COMP352)
 labs and projects. "testing.h" is about as bare bones as you can get but I found
 it useful and thought others might as well.
 
-See test.c for an example using this library.
+## Example
 ```c
 // this is an example file for "testing.c"
 // create something like this in the same dir as your
@@ -45,4 +45,42 @@ void test_abs(testing_t* t) {
   }
   test_table_end(t);
 }
+```
+
+## header file
+```c
+#ifndef TESTING_T
+#define TESTING_T
+#include <stdio.h>
+#include <stdlib.h>
+#include <strings.h>
+
+// testing_t must be intialized using
+// the test_new_test_session function
+typedef struct {
+  // ...
+} testing_t;
+
+// test_new_test_session should be used to start a testing session
+testing_t* test_new_test_session(int argc, char *argv[]);
+
+// test_session_done should be called at the end of main to report
+// the results of testing, returning the result from main is optional
+// see example in readme
+int test_session_done(testing_t* t);
+
+// test should be used to test expectaions
+void test(testing_t *t, int testValue, int shouldBe, char* failmMsg);
+
+// test_table_start should be called before starting to test
+// a logical group or table of tests
+void test_table_start(testing_t* t);
+
+// test_table_end should be called after completeing a logical group or
+// table of tests
+void test_table_end(testing_t* t);
+
+// test_row_increment should be called at the end of a test row
+void test_row_increment(testing_t* t);
+#endif
 ```
