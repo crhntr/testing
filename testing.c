@@ -132,7 +132,7 @@ void test_table_end(testing_t* t) {
   t->rowFails = 0;
 }
 
-void test_log(char* logMsg) {
+void test_log(testing_t* t, char* logMsg) {
   if (t->verbose) {
     printf("=> \"%s\"\n", logMsg);
   }
