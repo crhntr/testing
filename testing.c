@@ -131,3 +131,9 @@ void test_table_end(testing_t* t) {
   t->rowIndex = 0;
   t->rowFails = 0;
 }
+
+void test_log(char* logMsg) {
+  if (t->verbose) {
+    printf("=> \"%s\"\n", logMsg);
+  }
+}
