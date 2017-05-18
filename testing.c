@@ -49,7 +49,7 @@ int test_session_done(testing_t* t) {
   return 0;
 }
 
-void test(testing_t *t, int expected, int got, char* failmMsg) {
+int test(testing_t *t, int expected, int got, char* failmMsg) {
   // printf("\n\n\n\n\n\nvoid test(testing_t *t, int expected, int got, char* failmMsg) \n"); dbg(t);
   if (t->tableIndex >= 0) {
     if (expected != got) {
@@ -86,6 +86,7 @@ void test(testing_t *t, int expected, int got, char* failmMsg) {
       }
     }
   }
+  return expected != got;
 }
 
 void test_row_increment(testing_t* t) {

@@ -29,8 +29,9 @@ testing_t* test_new_test_session(int argc, char *argv[]);
 // see example in readme
 int test_session_done(testing_t* t);
 
-// test should be used to test expectaions
-void test(testing_t *t, int testValue, int shouldBe, char* failmMsg);
+// test should be used to test expectaions it returns 0 if testValue == shouldBe
+// it returns the result of testValue != shouldBe
+int test(testing_t *t, int testValue, int shouldBe, char* failmMsg);
 
 // test_table_start should be called before starting to test
 // a logical group or table of tests
