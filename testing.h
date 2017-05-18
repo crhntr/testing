@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <strings.h>
 
+#define testFunc(n) if(t->verbose){printf ("\n############################################# \rrunning test: " #n "\n\n");} t->testCount++; n(t);
+
 // testing_t should be initalized using
 // the test_new_test_session function
 typedef struct {
@@ -19,6 +21,7 @@ typedef struct {
   int rowIndex;
   int rowFails;
   int verbose;
+  int testCount;
 } testing_t;
 
 // test_new_test_session should be used to start a testing session

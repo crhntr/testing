@@ -31,6 +31,7 @@ testing_t* test_new_test_session(int argc, char *argv[]) {
   t->tableFails = 0;
   t->rowIndex = 0;
   t->rowFails = 0;
+  t->testCount = 0;
   t->verbose = verbose;
   // printf("\n\n\n\n\n\ntesting_t* test_new_test_session(int argc, char *argv[]) \n"); dbg(t);
 

@@ -4,5 +4,5 @@
 # Created: 2017-05-13
 #
 build:
-	gcc -Wall -c testing.c
+	gcc -Wall -g -c testing.c
 	ar cr testing.a testing.o
