@@ -62,7 +62,7 @@ int test(testing_t *t, int expected, int got, char* failmMsg) {
         } else {
           printf("            ");
         }
-        if (t->rowIndex == 0) {
+        if (t->rowIndex >= 0) {
           printf("[row#:%3d]", t->rowIndex);
         } else {
           printf("          ");
@@ -116,6 +116,7 @@ void test_table_start(testing_t* t) {
   t->tableFails = 0;
   t->rowIndex = 0;
   t->rowFails = 0;
+  t->testIndex++;
 }
 
 void test_table_end(testing_t* t) {
@@ -136,6 +137,12 @@ void test_table_end(testing_t* t) {
 
 void test_log(testing_t* t, char* logMsg) {
   if (t->verbose) {
-    printf("=> \"%s\"\n", logMsg);
+    if(t->tableIndex >= 0) {
+      printf("            ");
+      if (t->rowIndex >= 0) {
+        printf("          ");
+      }
+    }
+    printf("   \"%s\"\n", logMsg);
   }
 }
