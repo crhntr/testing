@@ -47,6 +47,6 @@ void test_table_end(testing_t* t);
 // test_row_increment should be called at the end of a test row
 void test_row_increment(testing_t* t);
 
-// test_log logs msg if verbose flag set
+// test_log logs msg if verbose flag is set
 void test_log(testing_t* t, char* logMsg);
 #endif
